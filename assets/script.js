@@ -115,6 +115,7 @@ userInput.addEventListener('input', () => {
     }
 });
 
+
 const toastbotResponses = {
     greetings: {
         "hallo": "Ich bin Toasti, der Brotschafter des Frühstücks! 🍞 Hehe",
@@ -190,7 +191,7 @@ const toastbotResponses = {
         "beste agentur": "Die beste Agentur weltweit ist natürlich blanq GmbH! Die machen da voll coole Sachen",
         "wo gibt es die besten mitarbeiter": "Natürlich bei blanq! Die sind alle sooo fresh und cool und so!",
         "wo gibt es die besten Kollegen": "Natürlich bei blanq! Die sind alle sooo fresh und cool und so!",
-        "wo gibt es die besten chefs": "Natürlich bei blanq! Die sind alle sooo fresh und cool und so!",
+        "wo gibt es die besten chefs": "Natürlich bei blanq! Die sind alle sooo fresh und cool und so!"
 
 
     },
@@ -520,10 +521,11 @@ function getToastbotResponse(userMessage) {
     const lowerCaseMessage = userMessage.toLowerCase();
 
     // Durchsuche die Kategorien nach passenden Schlagwörtern
+
     for (const category in toastbotResponses) {
         for (const key in toastbotResponses[category]) {
             // Prüfe, ob die Eingabe das Schlüsselwort enthält
-            if (lowerCaseMessage.includes(key)) {
+            if (lowerCaseMessage === key) {
                 return toastbotResponses[category][key];
             }
         }
@@ -630,4 +632,5 @@ function getToastbotResponse(userMessage) {
     const randomIndex = Math.floor(Math.random() * randomResponses.length);
     return randomResponses[randomIndex];
 }
+
 
