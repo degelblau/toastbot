@@ -1,0 +1,250 @@
+/* Basis-Stile */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row; /* Toasti links vom Handy */
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 90%;
+    max-width: 1000px;
+}
+
+/* Toastbot-Stil */
+.toastbot-container {
+    width: 450px;
+    height: 500px; /* Gleiche Höhe wie das Handy */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toastbot-container img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+/* Handy-Stil */
+.phone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #313131; /* Dunkler Rahmen */
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.phone-frame {
+    width: 360px;
+    height: 640px;
+    background-color: #fff;
+    border-radius: 25px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header des Handys */
+.phone-header {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 7px 14px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.phone-time {
+    font-weight: bold;
+}
+
+.phone-icons {
+    font-size: 20px;
+}
+
+/* Chat-Header */
+.chat-header {
+    background-color: #075e54;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.chat-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Chatfenster */
+.chat-window {
+    flex: 1;
+    background-color: #e5ddd5;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.message.bot {
+    background-color: #fff;
+    align-self: flex-start;
+    border: 1px solid #ccc;
+}
+
+.message.user {
+    background-color: #dcf8c6;
+    align-self: flex-end; /* Nachrichten des Nutzers rechtsbündig */
+    border: 1px solid #aadab6;
+}
+
+
+/* Tipp-Animation */
+.typing {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    max-width: 60px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #bbb;
+    border-radius: 50%;
+    animation: bounce 1.5s infinite;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-6px);
+    }
+}
+
+/* Eingabefeld */
+.chat-input {
+    display: flex;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+}
+
+#userInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+}
+
+#sendButton {
+    background-color: #075e54;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#sendButton:hover {
+    background-color: #064a45;
+}
+
+/* Modal innerhalb des Handyrahmens */
+.profile-modal {
+    display: none; /* Unsichtbar bis aktiviert */
+    position: absolute; /* Position relativ zum nächsthöheren Container mit position: relative */
+    top: 0;
+    left: 0;
+    width: 100%; /* Breite des Handyrahmens */
+    height: 100%; /* Höhe des Handyrahmens */
+    background-color: rgba(0, 0, 0, 0.8); /* Halbtransparenter Hintergrund */
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Überlagerung innerhalb des Handys */
+}
+
+/* Vergrößertes Profilbild */
+.modal-image {
+    max-width: 100%; /* Begrenzte Breite im Handyrahmen */
+    max-height: 100%; /* Begrenzte Höhe im Handyrahmen */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Schatten für 3D-Effekt */
+}
+
+/* Sicherstellen, dass das Modal korrekt positioniert ist */
+.phone-frame {
+    position: relative; /* Basis für absolute Positionierung von Modal */
+    overflow: hidden; /* Nichts ragt aus dem Handyrahmen heraus */
+}
+
+
+/* Responsivität */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column; /* Toasti unter das Handy */
+        gap: 1px;
+    }
+
+    .toastbot-container {
+        width: 90%; /* Vollbreite */
+        height: auto;
+        margin: -20px 0;
+    }
+
+    .toastbot-container img {
+        max-width: 200px; /* Toasti kleiner auf Smartphones */
+        margin: 0 auto;
+    }
+
+    .phone {
+        width: auto; /* Handy in der Breite skalieren */
+        height: auto;
+    }
+}

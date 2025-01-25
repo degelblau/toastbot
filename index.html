@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToastBot Chat</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="toastbot-container">
+            <img id="toastbotGif" src="assets/gif/toasti.png" alt="Toasti Animation">
+        </div>
+        <div class="phone">
+            <div class="phone-frame">
+                <div class="phone-header">
+                    <span class="phone-time" id="phoneTime"></span>
+                    <span class="phone-icons">📶  🔋</span>
+                </div>
+                <div class="chat-header">
+                    <img src="assets/images/profilbild.png" alt="Toasti Icon" class="chat-avatar" id="profileImage">
+                    <span class="chat-name">Toasti 🫶</span>
+                </div>
+                <div class="chat-window" id="chatbotMessages">
+                    <div class="message bot">Moinsen 🍞</div>
+                    <div class="typing-indicator-container">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="userInput" placeholder="Schreib etwas..." />
+                    <button id="sendButton">Senden</button>
+                </div>
+                <!-- Vergrößertes Profilbild innerhalb des Handys -->
+                <div class="profile-modal" id="profileModal">
+                    <img src="assets/images/profilbild.png" alt="Toasti Enlarged" class="modal-image">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Funktion zur Live-Aktualisierung der Uhrzeit
+        function updateLiveTime() {
+            const phoneTimeElement = document.getElementById('phoneTime');
+            setInterval(() => {
+                const now = new Date();
+                const hours = now.getHours().toString().padStart(2, '0');
+                const minutes = now.getMinutes().toString().padStart(2, '0');
+                phoneTimeElement.textContent = `${hours}:${minutes}`;
+            }, 1000);
+        }
+
+        // Start der Live-Uhrzeit
+        updateLiveTime();
+
+        // Modal-Logik
+        const profileImage = document.getElementById('profileImage');
+        const profileModal = document.getElementById('profileModal');
+
+        profileImage.addEventListener('click', () => {
+            profileModal.style.display = 'flex';
+        });
+
+        profileModal.addEventListener('click', () => {
+            profileModal.style.display = 'none';
+        });
+    </script>
+    <script src="assets/script.js"></script>
+</body>
+</html>
